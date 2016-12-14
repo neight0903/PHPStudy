@@ -1,11 +1,11 @@
 <?php
 
-echo "hello from the TOP!";
+// ユーザ一覧の表示
 
-?>
-<!DOCTYPE html>
-<html lang="ja">
-<body>
-  <p>Hello World <?php echo " from PHP"; ?></p>
-</body>
-</html>
+require_once(__DIR__ . '/../config/config.php');
+
+$app = new MyApp\Controller\Index();
+
+$app->run();
+
+
