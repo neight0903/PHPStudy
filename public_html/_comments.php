@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../config/config.php');
 $app = new MyApp\Controller\Index();
 
 $chats = $app->getComment();
-
+echo $chats;
 foreach ($chats as $chat) {
   $name = h($chat->name);
   $comment = h($chat->comment);
