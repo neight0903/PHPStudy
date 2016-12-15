@@ -26,20 +26,24 @@ $app->run();
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
 
-    <h1>Chat room</h1>
-    <form action="">
+    <h1>Chat Room</h1>
+    <form action="" id="new_comment_form">
       <input type="hidden" name="user_id" value="<?= h($app->me()->id); ?>">
       <input type="text" id="new_comment" pliceholder="Input comment!">
+      <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </form>
     
-    <ul id="#chats">
-    <?php foreach ($app->getValues()->chats as $chat) : ?>
-      <li><?= h($chat->user_id); ?> : <?= h($chat->comment); ?></li>
-    <?php endforeach; ?>
-    </ul>
+    <div id="chats"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      setInterval(function() {
+        $('#chats').load('_comments.php');
+      })
+    </script>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
   <script src="javascripts/chat.js"></script>
 </body>
 </html>
