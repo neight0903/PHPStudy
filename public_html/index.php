@@ -36,8 +36,7 @@ $app->run();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       setInterval(function() {
-        $('#chats').load('_comments.php');
-        $('#chats').prepend($li.fadeIn());
+        $('#chats').load('_comments.php').fadeIn();
       }, 500);
     </script>
 
