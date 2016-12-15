@@ -22,14 +22,21 @@ $app->run();
 <body>
   <div id="container">
     <form action="logout.php" method="post" id="logout">
-      <?= h($app->me()->id); ?> <input type="submit" value="Log Out">
+      <?= h($app->me()->email); ?> <input type="submit" value="Log Out">
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
 
     <h1>Chat room</h1>
-      <input type="text" pliceholder="Input text">
     <form action="">
+      <input type="hidden" name="user_id" value="<?= h($app->me()->id); ?>">
+      <input type="text" id="new_comment" pliceholder="Input comment!">
     </form>
+    
+    <ul>
+    <?php foreach ($app->getChats()->chats as $chat) : ?>
+      <li><?= h($chat->user_id); ?> : <?= h($chat->comment); ?></li>
+    <?php endforeach; ?>
+    </ul>
   </div>
 </body>
 </html>
