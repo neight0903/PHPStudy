@@ -14,6 +14,10 @@ create table users (
 
 desc users;
 
+alter table users add name varchar(32);
+
+
+truncate table users;
 
 create table chats (
   id int not null auto_increment primary key,

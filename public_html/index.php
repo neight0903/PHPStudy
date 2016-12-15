@@ -32,11 +32,14 @@ $app->run();
       <input type="text" id="new_comment" pliceholder="Input comment!">
     </form>
     
-    <ul>
+    <ul id="#chats">
     <?php foreach ($app->getValues()->chats as $chat) : ?>
       <li><?= h($chat->user_id); ?> : <?= h($chat->comment); ?></li>
     <?php endforeach; ?>
     </ul>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="javascripts/chat.js"></script>
 </body>
 </html>
