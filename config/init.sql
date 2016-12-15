@@ -13,3 +13,17 @@ create table users (
 );
 
 desc users;
+
+
+create table chats (
+  id int not null auto_increment primary key,
+  user_id int,
+  comment text,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp
+);
+
+insert into chats (user_id, comment) values
+(1, 'hogehoge'),
+(1, 'hugahuga'),
+(1, 'pigepige');
