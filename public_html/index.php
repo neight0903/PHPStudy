@@ -35,15 +35,14 @@ $app->run();
     
     <div id="chats"></div>
 
+    <script src="javascripts/chat.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       setInterval(function() {
         $('#chats').load('_comments.php');
-      })
+      }, 3000);
     </script>
   </div>
 
-
-  <script src="javascripts/chat.js"></script>
 </body>
 </html>
