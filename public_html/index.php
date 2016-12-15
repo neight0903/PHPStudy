@@ -34,9 +34,13 @@ $app->run();
     </form>
     
     <div id="chats"></div>
-<?php foreach ($app->getValues()->chats as $chat) : ?>
-  <li><a class="user"><?= h($chat->name); ?></a> : <a class="comment"><?= h($chat->comment); ?></a></li>
-<?php endforeach; ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      setInterval(function() {
+        $('#chats').load('_comments.php');
+        $('#chats').prepend($li.fadeIn());
+      }, 3000);
+    </script>
 
   </div>
 
