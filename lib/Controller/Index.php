@@ -17,7 +17,7 @@ class Index extends \MyApp\Controller {
     
     // get chats
     $chatModel = new \MyApp\Model\Chat();
-    $this->setValues('chats', $chatModel->getChats());
+    $this->setValues('chats', $chatModel->findAll());
   }
 
 }
