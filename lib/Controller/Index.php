@@ -11,17 +11,13 @@ class Index extends \MyApp\Controller {
       exit;
     }
 
-    // get users info
-    // $userModel = new \MyApp\Model\User();
-    // $this->setValues('users', $userModel->findAll());
-    
     // get chats
     $chatModel = new \MyApp\Model\Chat();
     // $this->setValues('chats', $chatModel->findAll());
     // $this->setValues('chats', $chatModel->getTop10());
   }
 
-  public function getComment() {
+  public function getComment10() {
     $chatModel = new \MyApp\Model\Chat();
     return $this->setValues('chats', $chatModel->getTop10());
   }
