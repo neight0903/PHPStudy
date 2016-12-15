@@ -30,8 +30,9 @@ $app->run();
     <form action="" id="new_comment" method="post">
       <input type="hidden" name="user_id" value="<?= h($app->me()->id); ?>">
       <input type="text" id="comment" pliceholder="Input comment!">
-      <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
       <div class="btn" onclick="document.getElementById('new_comment').submit();">comment</div>
+
+      <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </form>
     
     <ul id="chats"></ul>

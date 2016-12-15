@@ -27,8 +27,6 @@ class Index extends \MyApp\Controller {
   }
 
   public function post() {
-    $this->_validateToken();
-
     $chatModel = new \MyApp\Model\Chat();
     $chatModel->create([
       'user_id' => $_POST['user_id'],
