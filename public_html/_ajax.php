@@ -6,7 +6,7 @@ $chatApp = new \MyApp\Contoller\Index();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
-    $res = $chatApp->post();
+    $res = $todoApp->post();
     header('Content-Type: application/json');
     echo json_encode($res);
     exit;
