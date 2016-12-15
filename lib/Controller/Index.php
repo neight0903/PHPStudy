@@ -21,13 +21,12 @@ class Index extends \MyApp\Controller {
   }
 
   public function post() {
-
     try {
       $this->_validateToken();
     } catch (\MyApp\Exception\InvalidComment $e) {
         $this->setErrors('comment', $e->getMessage());
     }
-    
+
     $chatModel = new \MyApp\Model\Chat();
     $chatModel->create([
       'user_id' => $_POST['user_id'],

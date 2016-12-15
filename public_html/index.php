@@ -33,13 +33,12 @@ $app->run();
       <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </form>
     
-    <div id="chats"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       setInterval(function() {
         $('#chats').load('_comments.php');
         $('#chats').prepend($li.fadeIn());
-      }, 3000);
+      }, 500);
     </script>
 
   </div>
