@@ -2,16 +2,18 @@
 
 namespace MyApp\Controller;
 
-class Index extends \MyApp\Contoller {
-    
-    public function run() {
-        // loginしていない場合はログイン画面へ
-        if (!$this->isLoggedIn()) {
-            // login画面へ
-            header('Location: ' . SITE_URL . '/login.php');
-            exit;
-        }
+class Index extends \MyApp\Controller {
 
-        // get users info
+  public function run() {
+    if (!$this->isLoggedIn()) {
+      // login
+      header('Location: ' . SITE_URL . '/login.php');
+      exit;
     }
+
+    // get users info
+    $userModel = new \MyApp\Model\User();
+    $this->setValues('users', $userModel->findAll());
+  }
+
 }

@@ -20,31 +20,47 @@ class Signup extends \MyApp\Controller {
     try {
       $this->_validate();
     } catch (\MyApp\Exception\InvalidEmail $e) {
-    //   echo $e->getMessage();
-    //   exit;
+      // echo $e->getMessage();
+      // exit;
       $this->setErrors('email', $e->getMessage());
     } catch (\MyApp\Exception\InvalidPassword $e) {
-    //   echo $e->getMessage();
-    //   exit;
+      // echo $e->getMessage();
+      // exit;
       $this->setErrors('password', $e->getMessage());
     }
 
     // echo "success";
     // exit;
 
-    if ($this->hassError()) {
-        return;
+    $this->setValues('email', $_POST['email']);
+
+    if ($this->hasError()) {
+      return;
     } else {
-    
+      // create user
+      try {
+        $userModel = new \MyApp\Model\User();
+        $userModel->create([
+          'email' => $_POST['email'],
+          'password' => $_POST['password']
+        ]);
+      } catch (\MyApp\Exception\DuplicateEmail $e) {
+        $this->setErrors('email', $e->getMessage());
+        return;
+      }
 
-    // create user
-
-    // redirect to login
+      // redirect to login
+      header('Location: ' . SITE_URL . '/login.php');
+      exit;
     }
-
   }
 
   private function _validate() {
+    if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
+      echo "Invalid Token!";
+      exit;
+    }
+
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       throw new \MyApp\Exception\InvalidEmail();
     }
