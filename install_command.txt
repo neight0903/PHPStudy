@@ -10,7 +10,7 @@ sudo yum install epel-release
 sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 rpm -qa | grep php
 yum remove php-*
-sudo yum install --enablerepo=remi,remi-php56 php php-devel php-mbstring php-pdo php-gd
+sudo yum install --enablerepo=remi,remi-php56 php php-devel php-mbstring php-pdo php-gd php-mysql
 vim /etc/php.ini
 ---------------------------------------------
 date.timezone = "Asia/Tokyo"
