@@ -1,4 +1,24 @@
 mysqlのインストール
 vim /etc/yum.repos.d/mysql-community.repo 
+---------------------------------------------
 27:enabled=0 => enabled=1
+---------------------------------------------
 sudo yum -y install mysql mysql-devel mysql-server mysql-utilities
+
+phpのインストール
+sudo yum install epel-release
+sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+rpm -qa | grep php
+yum remove php-*
+sudo yum install --enablerepo=remi,remi-php56 php php-devel php-mbstring php-pdo php-gd
+vim /etc/php.ini
+---------------------------------------------
+date.timezone = "Asia/Tokyo"
+mbstring.language = Japanese
+mbstring.internal_encoding = UTF-8
+mbstring.http_input = UTF-8
+mbstring.http_output = pass
+mbstring.encoding_translation = On
+mbstring.detect_order = auto
+mbstring.substitute_charset = none
+---------------------------------------------
