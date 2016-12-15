@@ -22,7 +22,7 @@ $app->run();
 <body>
   <div id="container">
     <form action="logout.php" method="post" id="logout">
-      <?= h($app->me()->email); ?> <input type="submit" value="Log Out">
+      <?= h($app->me()->name); ?> : <?= h($app->me()->email); ?> <input type="submit" value="Log Out">
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
 
