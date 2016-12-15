@@ -20,7 +20,7 @@ $app->run();
   <div id="container">
     <form action="" method="post" id="signup">
       <p>
-        <input type="text" name="name" placeholder="name" value="<?= isset($app->getValues()->name) ? h($app->getValues()->name) : ''; ?>">
+        <input type="text" name="name" placeholder="name" maxlength="32" value="<?= isset($app->getValues()->name) ? h($app->getValues()->name) : ''; ?>">
       </p>
       <p class="err"><?= h($app->getErrors('name')); ?></p>
       <p>

@@ -13,6 +13,7 @@ class User extends \MyApp\Model {
     ]);
     if ($res === false) {
       throw new \MyApp\Exception\DuplicateEmail();
+      throw new \MyApp\Exception\DuplicateName();
     }
   }
 

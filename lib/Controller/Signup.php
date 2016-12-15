@@ -53,7 +53,10 @@ class Signup extends \MyApp\Controller {
       } catch (\MyApp\Exception\DuplicateEmail $e) {
         $this->setErrors('email', $e->getMessage());
         return;
-      }
+      } catch (\MyApp\Exception\DuplicateName $e) {
+        $this->setErrors('name', $e->getMessage());
+        return;
+      } 
 
       // redirect to login
       header('Location: ' . SITE_URL . '/login.php');
