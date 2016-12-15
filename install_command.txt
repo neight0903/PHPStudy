@@ -1,0 +1,4 @@
+mysqlのインストール
+vim /etc/yum.repos.d/mysql-community.repo 
+27:enabled=0 => enabled=1
+sudo yum -y install mysql mysql-devel mysql-server mysql-utilities
