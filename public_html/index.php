@@ -30,7 +30,6 @@ $app->run();
     <form action="" id="new_comment" method="post">
       <input type="hidden" name="user_id" value="<?= h($app->me()->id); ?>">
       <input type="text" name="comment" pliceholder="Input comment!">
-      <div class="btn" onclick="document.getElementById('new_comment').submit();">comment</div>
     </form>
     
     <ul id="chats"></ul>
