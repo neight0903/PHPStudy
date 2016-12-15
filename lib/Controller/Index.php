@@ -27,11 +27,7 @@ class Index extends \MyApp\Controller {
   }
 
   public function post() {
-    try {
-      $this->_validateToken();
-    } catch (\MyApp\Exception\InvalidComment $e) {
-        $this->setErrors('comment', $e->getMessage());
-    }
+    $this->_validateToken();
 
     $chatModel = new \MyApp\Model\Chat();
     $chatModel->create([
