@@ -33,12 +33,4 @@ class Index extends \MyApp\Controller {
       'comment' => $_POST['comment']
     ]);
   }
-
-  private function _validateToken() {
-    if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
-      echo "Invalid Token!";
-      exit;
-    }
-  }
-
 }

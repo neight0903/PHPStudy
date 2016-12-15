@@ -12,11 +12,11 @@ class Chat extends \MyApp\Model {
     ]);
   }
 
-  public function findAll() {
-    $stmt = $this->db->query("select chats.id, chats.comment, users.name from chats, users where chats.user_id = users.id order by chats.id desc;");
-    $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
-    return $stmt->fetchAll();
-  }
+  // public function findAll() {
+  //   $stmt = $this->db->query("select chats.id, chats.comment, users.name from chats, users where chats.user_id = users.id order by chats.id desc;");
+  //   $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
+  //   return $stmt->fetchAll();
+  // }
 
   public function getTop10() {
     $stmt = $this->db->query("select chats.id, chats.comment, users.name from chats, users where chats.user_id = users.id order by chats.id desc limit 10;");

@@ -8,9 +8,6 @@ $app = new MyApp\Controller\Login();
 
 $app->run();
 
-// echo "login screen";
-// exit;
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
