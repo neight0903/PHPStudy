@@ -34,14 +34,10 @@ $app->run();
     </form>
     
     <div id="chats"></div>
+<?php foreach ($app->getValues()->chats as $chat) : ?>
+  <li><a class="user"><?= h($chat->user); ?></a> : <a class="comment"><?= h($chat->comment); ?></a></li>
+<?php endforeach; ?>
 
-    <script src="javascripts/chat.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-      setInterval(function() {
-        $('#chats').load('_comments.php');
-      }, 3000);
-    </script>
   </div>
 
 </body>
