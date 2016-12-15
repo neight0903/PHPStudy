@@ -33,7 +33,7 @@ $app->run();
     </form>
     
     <ul>
-    <?php foreach ($app->getChats()->chats as $chat) : ?>
+    <?php foreach ($app->getValues()->chats as $chat) : ?>
       <li><?= h($chat->user_id); ?> : <?= h($chat->comment); ?></li>
     <?php endforeach; ?>
     </ul>
