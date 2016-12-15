@@ -15,6 +15,10 @@ class Index extends \MyApp\Controller {
     $chatModel = new \MyApp\Model\Chat();
     // $this->setValues('chats', $chatModel->findAll());
     // $this->setValues('chats', $chatModel->getTop10());
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $this->post();
+    }
   }
 
   public function getComment10() {
