@@ -23,7 +23,7 @@ class Index extends \MyApp\Controller {
 
   public function getComment() {
     $chatModel = new \MyApp\Model\Chat();
-    $this->setValues('chats', $chatModel->getTop10());
+    return $this->setValues('chats', $chatModel->getTop10());
   }
 
   public function post() {
