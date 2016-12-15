@@ -18,5 +18,10 @@ class Chat extends \MyApp\Model {
     return $stmt->fetchAll();
   }
 
+  public function getTop10() {
+    $stmt = $this->db->query("select chats.id, chats.comment, users.name from chats, users where chats.user_id = users.id order by chats.id desc limit 10;");
+    $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
+    return $stmt->fetchAll();
+  }
 }
 
