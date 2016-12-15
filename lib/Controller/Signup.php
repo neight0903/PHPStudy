@@ -27,12 +27,17 @@ class Signup extends \MyApp\Controller {
       // echo $e->getMessage();
       // exit;
       $this->setErrors('password', $e->getMessage());
+    } catch (\MyApp\Exception\InvalidName $e) {
+      // echo $e->getMessage();
+      // exit;
+      $this->setErrors('name', $e->getMessage());
     }
 
     // echo "success";
     // exit;
 
     $this->setValues('email', $_POST['email']);
+    $this->setValues('name', $_POST['name']);
 
     if ($this->hasError()) {
       return;
@@ -42,10 +47,14 @@ class Signup extends \MyApp\Controller {
         $userModel = new \MyApp\Model\User();
         $userModel->create([
           'email' => $_POST['email'],
-          'password' => $_POST['password']
+          'password' => $_POST['password'],
+          'name' => $_POST['name']
         ]);
       } catch (\MyApp\Exception\DuplicateEmail $e) {
         $this->setErrors('email', $e->getMessage());
+        return;
+      } catch (\MyApp\Exception\DuplicateName $e) {
+        $this->setErrors('name', $e->getMessage());
         return;
       }
 
@@ -67,6 +76,10 @@ class Signup extends \MyApp\Controller {
 
     if (!preg_match('/\A[a-zA-Z0-9]+\z/', $_POST['password'])) {
       throw new \MyApp\Exception\InvalidPassword();
+    }
+
+    if (!filter_var($_POST['name'], FILTER_VALIDATE_EMAIL)) {
+      throw new \MyApp\Exception\InvalidName();
     }
   }
 
