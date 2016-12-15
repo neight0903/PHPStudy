@@ -33,6 +33,7 @@ $app->run();
       <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </form>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       setInterval(function() {
         $('#chats').load('_comments.php');
@@ -40,8 +41,7 @@ $app->run();
       }, 500);
     </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="char.js"></script>
+    <script src="chat.js"></script>
   </div>
 
 </body>
