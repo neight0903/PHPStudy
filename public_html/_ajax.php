@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/config.php');
 
-$chatApp = new \MyApp\Model\Chat();
+$chatApp = new \MyApp\Contoller\Index();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
