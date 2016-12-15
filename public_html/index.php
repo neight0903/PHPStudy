@@ -29,7 +29,7 @@ $app->run();
     <h1>Chat Room</h1>
     <form action="" id="new_comment" method="post">
       <input type="hidden" name="user_id" value="<?= h($app->me()->id); ?>">
-      <input type="text" name="comment" pliceholder="Input comment!">
+      <input type="text" name="comment" placeholder="Input comment!">
     </form>
     
     <ul id="chats"></ul>
@@ -37,11 +37,9 @@ $app->run();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
       setInterval(function() {
-        $('#chats').load('_comments.php').fadeIn();
+        $('#chats').load('_comments.php');
       }, 1000);
     </script>
-
-    <script src="javascripts/chat.js"></script>
   </div>
 
 </body>
