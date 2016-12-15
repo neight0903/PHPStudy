@@ -36,11 +36,11 @@ $app->run();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       setInterval(function() {
-        $('#chats').load('_comments.php').fadeIn();
+        $('#chats').load('_comments.php');
       }, 500);
     </script>
 
-    <script src="chat.js"></script>
+    <script src="javascripts/chat.js"></script>
   </div>
 
 </body>
