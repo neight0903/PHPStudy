@@ -33,12 +33,9 @@ $app->run();
       <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </form>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-      setInterval(function() {
-        $('#chats').load('_comments.php');
-      }, 500);
-    </script>
+    <?php foreach ($app->getValues()->chats as $chat) : ?>
+      <li><a class="user"><?= h($chat->user_id); ?></a> : <a class="comment"><?= h($chat->comment); ?></a></li>
+    <?php endforeach; ?>
 
     <script src="javascripts/chat.js"></script>
   </div>
