@@ -77,10 +77,6 @@ class Signup extends \MyApp\Controller {
     if (!preg_match('/\A[a-zA-Z0-9]+\z/', $_POST['password'])) {
       throw new \MyApp\Exception\InvalidPassword();
     }
-
-    if (!filter_var($_POST['name'], FILTER_VALIDATE_EMAIL)) {
-      throw new \MyApp\Exception\InvalidName();
-    }
   }
 
 }
